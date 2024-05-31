@@ -56,7 +56,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if (event.message.text[:2] == "O:"):
-       message = TextSendMessage(text=event.message.text[2:])
+       message = TextSendMessage(text=event.source.groupId)
        line_bot_api.reply_message(event.reply_token, message)
 
 # 處理訊息
