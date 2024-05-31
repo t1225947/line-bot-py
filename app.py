@@ -55,9 +55,9 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-   # if (event.message.text == "OTA"):
-    message = TextSendMessage(text=event.message.text[:3])
-    line_bot_api.reply_message(event.reply_token, message)
+    if (event.message.text[:4] == "OTA:"):
+       message = TextSendMessage(text=event.message.text)
+       line_bot_api.reply_message(event.reply_token, message)
 
 # 處理訊息
 # @handler.add(MessageEvent, message=TextMessage)
